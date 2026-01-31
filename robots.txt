@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shadylabs-web.github.io/shadylabs/sitemap.xml
