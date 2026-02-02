@@ -754,7 +754,9 @@
         </div>
 
         <div class="hero-cta">
-            <a href="https://ig.me/m/shadylabs?text=Hi%20ShadyLabs%20I%E2%80%99m%20interested%20in%20a%20website%20and%20would%20like%20to%20know%20more%20details." class="btn btn-light">Request a Quote</a>
+            <a href="#" class="primary-btn" onclick="openSlotForm()">
+  Book a Slot
+</a>
         </div>
     </section>
 
@@ -1011,6 +1013,16 @@
   }
 </script>
 
+<script>
+  function openSlotForm() {
+    document.getElementById('bookSlotModal').style.display = 'flex';
+  }
+
+  function closeSlotForm() {
+    document.getElementById('bookSlotModal').style.display = 'none';
+  }
+</script>
+
 <!-- Get Started Popup -->
 <div id="getStartedModal" style="
   position: fixed;
@@ -1079,6 +1091,89 @@
         cursor:pointer;
       ">
         Send Request
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<!-- Book a Slot Popup -->
+<div id="bookSlotModal" style="
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+">
+
+  <div style="
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 24px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+  ">
+
+    <!-- Close Button -->
+    <span onclick="closeSlotForm()" style="
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 24px;
+      cursor: pointer;
+      font-weight: 700;
+    ">×</span>
+
+    <h3 style="margin-bottom: 20px;">Book a Slot</h3>
+
+    <form action="https://formsubmit.co/digitalclarity.shadylabs@gmail.com"
+          method="POST"
+          style="display:flex; flex-direction:column; gap:12px;">
+
+      <input type="email" name="email" placeholder="Your Email" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <input type="tel" name="phone" placeholder="Phone Number (WhatsApp preferred)" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <input type="date" name="preferred_date" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <input type="time" name="preferred_time" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <select name="timezone" required
+              style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+        <option value="">Select Time Zone</option>
+        <option>GMT (UK / Portugal)</option>
+        <option>GMT+1 (Europe)</option>
+        <option>GMT+3 (Middle East)</option>
+        <option>GMT+5:30 (India / Sri Lanka)</option>
+        <option>GMT+8 (Singapore / China)</option>
+        <option>GMT+10 (Australia)</option>
+        <option>EST (USA / Canada)</option>
+        <option>PST (USA)</option>
+      </select>
+
+      <!-- FormSubmit Settings -->
+      <input type="hidden" name="_subject" value="New Slot Booking Request">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit" style="
+        padding:14px;
+        border-radius:30px;
+        border:none;
+        background:#000;
+        color:#fff;
+        cursor:pointer;
+      ">
+        Request Slot
       </button>
 
     </form>
