@@ -876,7 +876,9 @@
                     <li><i class="fa-solid fa-circle-info"></i> No Hosting Service</li>
                     <li><i class="fa-solid fa-circle-info"></i> No Database Integration</li>
                 </ul>
-                <a href="https://www.instagram.com/direct/new/?username=shadylabs.dev&text=Hey%20Shady%20Labs%20%F0%9F%91%8BI%E2%80%99m%20looking%20to%20elevate%20my%20brand%20with%20a%20core%E2%80%91build%20plan.Can%20we%20discuss%20this" class="primary-btn">Get Started <i class="fa-solid fa-plus"></i></a>
+             <a href="#" class="primary-btn" onclick="openForm('Core Build')">
+  Get Started <i class="fa-solid fa-plus"></i>
+</a>
             </div>
             <div class="pricing-card featured">
                 <h3>Growth Build</h3>
@@ -892,7 +894,9 @@
                     <li><i class="fa-solid fa-circle-check"></i> Database Integration</li>
                     <li><i class="fa-solid fa-circle-info"></i> No Hosting Service</li>
                 </ul>
-                <a href="https://www.instagram.com/direct/new/?username=shadylabs.dev&text=Hey%20Shady%20Labs%20%F0%9F%91%8BI%E2%80%99m%20looking%20to%20elevate%20my%20brand%20with%20a%20Growth%E2%80%91Build%20plan.Can%20we%20discuss%20this" class="primary-btn">Get Started <i class="fa-solid fa-plus"></i></a>
+             <a href="#" class="primary-btn" onclick="openForm('Growth Build')">
+  Get Started <i class="fa-solid fa-plus"></i>
+</a>
             </div>
         </div>
     </section>
@@ -994,5 +998,92 @@
             });
         });
     </script>
+
+<script>
+  function openForm(plan) {
+    const modal = document.getElementById('getStartedModal');
+    modal.style.display = 'flex';
+    modal.querySelector('select[name="plan"]').value = plan;
+  }
+
+  function closeForm() {
+    document.getElementById('getStartedModal').style.display = 'none';
+  }
+</script>
+
+<!-- Get Started Popup -->
+<div id="getStartedModal" style="
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+">
+
+  <div style="
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 24px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+  ">
+
+    <!-- Close Button -->
+    <span onclick="closeForm()" style="
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 24px;
+      cursor: pointer;
+      font-weight: 700;
+    ">×</span>
+
+    <h3 style="margin-bottom: 20px;">Get Started</h3>
+
+    <form action="https://formsubmit.co/digitalclarity.shadylabs@gmail.com"
+          method="POST"
+          style="display:flex; flex-direction:column; gap:12px;">
+
+      <input type="text" name="name" placeholder="Your Name" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <input type="email" name="email" placeholder="Your Email" required
+             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+
+      <select name="plan" required
+              style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+        <option value="">Select Plan</option>
+        <option>Core Build</option>
+        <option>Growth Build</option>
+      </select>
+
+      <textarea name="message" placeholder="Tell us about your project"
+                style="padding:12px; border-radius:10px; border:1px solid #ccc;"></textarea>
+
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New ShadyLabs Pricing Inquiry">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit" style="
+        padding:14px;
+        border-radius:30px;
+        border:none;
+        background:#000;
+        color:#fff;
+        cursor:pointer;
+      ">
+        Send Request
+      </button>
+
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
