@@ -757,6 +757,139 @@ font-size:17px;
 }
 
 
+.card {
+  width: 320px;
+  background: #fff;
+  border-radius: 26px;
+  padding: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.date {
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px 10px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.date span {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.date strong {
+  display: block;
+  font-size: 16px;
+}
+
+.date small {
+  font-size: 10px;
+  color: #777;
+}
+
+.company {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.company span {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 20px;
+  margin: 6px 0 14px;
+}
+
+.toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mode {
+  flex: 1;
+  padding: 8px;
+  border-radius: 14px;
+  border: none;
+  background: #eee;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mode.active {
+  background: #111;
+  color: #fff;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.features li {
+  font-size: 13px;
+  padding: 6px 0;
+  color: #444;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.price small {
+  font-size: 12px;
+  color: #777;
+}
+
+.location {
+  font-size: 13px;
+  color: #666;
+}
+
+.cta {
+  width: 100%;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(#2b2b2b, #000);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+
     </style>
 <script type="application/ld+json">
 {
@@ -911,6 +1044,49 @@ Trusted by creators & growing brands worldwide
             </div>
         </div>
     </section>
+
+
+  <div class="card">
+
+    <!-- Top row -->
+    <div class="top-row">
+      <div class="logo">  <i class="fa-brands fa-diaspora"></i></div>
+      <div class="date">
+        <span>Reviews</span>
+        <strong>4.5/5</strong>
+        <small>Stars</small>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <p class="company">Premium<span>limited spots</span></p>
+    <h2 class="title">Signature Web Build</h2>
+
+    <!-- Toggle buttons -->
+    <div class="toggle">
+      <button class="mode active" data-mode="full">Websites</button>
+      <button class="mode" data-mode="hybrid">Services</button>
+    </div>
+
+    <!-- Feature list -->
+    <ul class="features" id="featureList">
+      <li>Frontend + Backend Development</li>
+      <li>Supabase / Database Integration</li>
+      <li>Authentication Systems</li>
+      <li>Admin Dashboards</li>
+      <li>Payment Integrations</li>
+    </ul>
+
+    <!-- Meta info -->
+    <div class="meta">
+      <span class="price">$199 - $1500+ <small>/range</small></span>
+      <span class="location">3 Revisions </span>
+    </div>
+
+    <!-- CTA -->
+    <button class="cta" onclick="openForm()">Customize now</button>
+
+  </div>
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
@@ -1365,6 +1541,42 @@ form.querySelectorAll('input, textarea, select').forEach(el => {
 loadData();
 showStep(currentStep);
 </script>
+
+const buttons = document.querySelectorAll('.mode');
+const list = document.getElementById('featureList');
+
+const features = {
+  full: [
+    "Landing Pages",
+    "Portfolio Sites",
+    "Ecommerce sites",
+    "Saas Websites",
+    "Business Websites"
+  ],
+  hybrid: [
+    "Supabase powered CMS",
+    "Paypal Integration",
+    "Smart Cart Setup",
+    "Admin Dashboard",
+    "SEO Optimization"
+  ]
+};
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const mode = btn.dataset.mode;
+    list.innerHTML = "";
+
+    features[mode].forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      list.appendChild(li);
+    });
+  });
+});
 
 </body>
 </html>
