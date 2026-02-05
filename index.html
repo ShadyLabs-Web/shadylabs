@@ -701,6 +701,24 @@
             font-size: 0.9rem;
             color: #666;
         }
+.form-step {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-step.active {
+  display: flex;
+}
+
+#customPlanForm input,
+#customPlanForm textarea,
+#customPlanForm select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
     </style>
 <script type="application/ld+json">
 {
@@ -861,46 +879,40 @@ Trusted by creators & growing brands worldwide
         <div class="section-header">
         <h2 class="section-title">Pricing Plans</h2>
         <p style="max-width:300px; font-size:0.8rem; color:#666; margin-top:-50px; margin-bottom:10px;">We build coversion focused digital assets to scale</p>
-        </div>
-        <div class="pricing-grid">
+        </div>
             <div class="pricing-card">
-                <h3>Core Build</h3>
-                <div class="price">Starting at $129</div>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Single Page Website</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Fully responsive design</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Basic SEO setup</li>
-                    <li><i class="fa-solid fa-circle-check"></i>Social profile linking</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Up to 2 minor Revisions</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Testing and Debugging</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Support within 24 hours</li>
-                    <li><i class="fa-solid fa-circle-info"></i> No Hosting Service</li>
-                    <li><i class="fa-solid fa-circle-info"></i> No Database Integration</li>
-                </ul>
-             <a href="#" class="primary-btn" onclick="openForm('Core Build')">
-  Get Started <i class="fa-solid fa-plus"></i>
-</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3>Growth Build</h3>
-                <div class="price">Starting at $799</div>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> <b><i>Includes all Core Build features </i></b></li>
-                    <li><i class="fa-solid fa-circle-check"></i> Multi Paged Website</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Scalable Design Structure</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Supabase powered CMS</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Admin dashboard setup</li>
- <li><i class="fa-solid fa-circle-check"></i> Smart Cart setup</li>
- <li><i class="fa-solid fa-circle-check"></i> PayPal Integrations </li>
-                    <li><i class="fa-solid fa-circle-check"></i> Up to 2 full Revisions</li>
-  <li><i class="fa-solid fa-circle-check"></i> Email form Integration</li>
-  <li><i class="fa-solid fa-circle-check"></i> 1 month post-launch support </li>
-                    <li><i class="fa-solid fa-circle-info"></i> No Hosting Service</li>
-                </ul>
-             <a href="#" class="primary-btn" onclick="openForm('Growth Build')">
-  Get Started <i class="fa-solid fa-plus"></i>
-</a>
-            </div>
+                <div class="pricing-card featured">
+  <h3>Signature Web Experience</h3>
+<p>Custom-built websites tailored to your business goals</p>
+  <p class="price">
+    Starting at <span>$199</span> <br>
+    <small>Up to $1500+</small>
+  </p>
+<p>Pricing depends on features, complexity & integrations</p>
+
+  <ul>
+    <li><strong>Websites We Build</strong></li>
+    <li>Landing Pages & Pre-Launch Pages</li>
+    <li>Business & Portfolio Websites</li>
+    <li>E-commerce Stores</li>
+    <li>Custom Web Applications</li>
+
+    <li><strong>Included Services</strong></li>
+    <li>Custom UI/UX Design</li>
+    <li>Supabase CMS & Auth</li>
+    <li>Admin Dashboards</li>
+    <li>Smart Cart System</li>
+    <li>PayPal Payment Integration</li>
+    <li>SEO & Performance Optimization</li>
+  </ul>
+
+  <button onclick="openGetStartedModal()">
+    Create My Plan
+  </button>
+<p>No templates. No shortcuts. Built exactly for your business.</p>
+</div>
+            
+            
         </div>
     </section>
 
@@ -1061,42 +1073,100 @@ ShadyLabs is a web development agency based in Sri Lanka, working with clients g
 
     <h3 style="margin-bottom: 20px;">Get Started</h3>
 
-    <form action="https://formsubmit.co/digitalclarity.shadylabs@gmail.com"
-          method="POST"
-          style="display:flex; flex-direction:column; gap:12px;">
+    <form id="customPlanForm"
+      action="https://formsubmit.co/digitalclarity.shadylabs@gmail.com"
+      method="POST"
+      style="display:flex; flex-direction:column; gap:16px;">
 
-      <input type="text" name="name" placeholder="Your Name" required
-             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+  <!-- SECTION 1: BASIC INFO -->
+  <div class="form-step active">
+    <h4>Basic Information</h4>
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="business_name" placeholder="Business Name" required>
+    <input type="text" name="role" placeholder="Your Role in the Business">
+  </div>
 
-      <input type="email" name="email" placeholder="Your Email" required
-             style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+  <!-- SECTION 2: BUSINESS OVERVIEW (NO 7th ELEMENT, 10th AS TEXT BOXES) -->
+  <div class="form-step">
+    <h4>Business Overview</h4>
+    <input type="text" name="industry" placeholder="Industry / Niche">
+    <input type="text" name="location" placeholder="Business Location">
 
-      <select name="plan" required
-              style="padding:12px; border-radius:10px; border:1px solid #ccc;">
-        <option value="">Select Plan</option>
-        <option>Core Build</option>
-        <option>Growth Build</option>
-      </select>
+    <textarea name="target_audience" placeholder="
+Age range:
+Gender:
+Location:
+Interests:
+"></textarea>
+  </div>
 
-      <textarea name="message" placeholder="Tell us about your project"
-                style="padding:12px; border-radius:10px; border:1px solid #ccc;"></textarea>
+  <!-- SECTION 3: PROJECT PERSPECTIVE -->
+  <div class="form-step">
+    <h4>Project Perspective</h4>
+    <textarea name="project_description" placeholder="Briefly describe your project"></textarea>
+    <textarea name="problem_to_solve" placeholder="What problem are you trying to solve?"></textarea>
+  </div>
 
-      <!-- FormSubmit settings -->
-      <input type="hidden" name="_subject" value="New ShadyLabs Pricing Inquiry">
-      <input type="hidden" name="_captcha" value="false">
+  <!-- SECTION 4: GOALS & RESULTS -->
+  <div class="form-step">
+    <h4>Goals & Results</h4>
+    <textarea name="desired_results" placeholder="What results do you want to achieve?"></textarea>
+    <textarea name="success_metric" placeholder="How will you measure success?"></textarea>
+  </div>
 
-      <button type="submit" style="
-        padding:14px;
-        border-radius:30px;
-        border:none;
-        background:#000;
-        color:#fff;
-        cursor:pointer;
-      ">
-        Send Request
-      </button>
+  <!-- SECTION 5: DESIGN & AESTHETICS (NO 20 & 21) -->
+  <div class="form-step">
+    <h4>Design Preferences</h4>
+    <input type="text" name="aesthetic" placeholder="Preferred aesthetic (minimal, luxury, dark…)">
+    <input type="text" name="brand_colors" placeholder="Brand colors (if any)">
+    <input type="text" name="logo_status" placeholder="Do you have a logo? (Yes / No)">
+  </div>
 
-    </form>
+  <!-- SECTION 6: CONTENT & ASSETS -->
+  <div class="form-step">
+    <h4>Content & Assets</h4>
+    <input type="text" name="content_status" placeholder="Is your content ready? (Yes / Partial / No)">
+    <input type="text" name="assets_status" placeholder="Images & videos provided or need help?">
+  </div>
+
+  <!-- SECTION 7: BUDGET ONLY -->
+  <div class="form-step">
+    <h4>Budget Range</h4>
+    <select name="budget" required>
+      <option value="">Select Budget Range</option>
+      <option>Under $300</option>
+      <option>$300 – $800</option>
+      <option>$800 – $1,500</option>
+      <option>$1,500+</option>
+    </select>
+  </div>
+
+  <!-- SECTION 9: FINAL QUESTIONS -->
+  <div class="form-step">
+    <h4>Final Details</h4>
+    <textarea name="additional_notes" placeholder="Anything else we should know?"></textarea>
+  </div>
+
+  <!-- AGREEMENT -->
+  <div class="form-step">
+    <label style="font-size:0.8rem;">
+      <input type="checkbox" required>
+      I understand pricing & timelines depend on the information provided above.
+    </label>
+  </div>
+
+  <!-- FormSubmit settings -->
+  <input type="hidden" name="_subject" value="New ShadyLabs Custom Plan Inquiry">
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Navigation -->
+  <div style="display:flex; gap:10px;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+
+</form>
   </div>
 </div>
 
@@ -1182,6 +1252,62 @@ ShadyLabs is a web development agency based in Sri Lanka, working with clients g
     </form>
   </div>
 </div>
+
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll('.form-step');
+const form = document.getElementById('customPlanForm');
+
+function showStep(n) {
+  steps.forEach(step => step.classList.remove('active'));
+  steps[n].classList.add('active');
+
+  document.getElementById('prevBtn').style.display = n === 0 ? 'none' : 'block';
+  document.getElementById('nextBtn').innerText =
+    n === steps.length - 1 ? 'Submit' : 'Next';
+}
+
+function nextPrev(n) {
+  if (n === 1 && currentStep === steps.length - 1) {
+    localStorage.removeItem('customPlanData');
+    form.submit();
+    form.innerHTML = `
+      <h3 style="text-align:center;">
+        Thanks for the submission!<br><br>
+        We'll review your details and provide you with the perfect plan
+        to meet your goals within <b>24–48 hours</b>.
+      </h3>
+    `;
+    return;
+  }
+  currentStep += n;
+  saveData();
+  showStep(currentStep);
+}
+
+function saveData() {
+  const data = {};
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    data[el.name] = el.value;
+  });
+  localStorage.setItem('customPlanData', JSON.stringify(data));
+}
+
+function loadData() {
+  const saved = JSON.parse(localStorage.getItem('customPlanData'));
+  if (!saved) return;
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    if (saved[el.name]) el.value = saved[el.name];
+  });
+}
+
+form.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', saveData);
+});
+
+loadData();
+showStep(currentStep);
+</script>
 
 </body>
 </html>
