@@ -447,7 +447,7 @@
         }
 
         .pricing-card .price {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 700;
             margin-bottom: 30px;
         }
@@ -719,6 +719,41 @@
   border: 1px solid #ccc;
 }
 
+@media (max-width: 480px) {
+  .pricing-card .price {
+    font-size: 30px;
+  }
+}
+
+.pricing-card li i {
+  margin-right: 10px;
+  opacity: 0.9;
+}
+
+.pricing-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pricing-card.featured .pricing-btn {
+  background: #fff;
+  color: #000;
+}
+
+.pricing-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
     </style>
 <script type="application/ld+json">
 {
@@ -880,7 +915,7 @@ Trusted by creators & growing brands worldwide
         <h2 class="section-title">Pricing Plans</h2>
         <p style="max-width:300px; font-size:0.8rem; color:#666; margin-top:-50px; margin-bottom:10px;">We build coversion focused digital assets to scale</p>
         </div>
-            <div class="pricing-card">
+            
                 <div class="pricing-card featured">
   <h3>Signature Web Experience</h3>
 <p>Custom-built websites tailored to your business goals</p>
@@ -892,23 +927,23 @@ Trusted by creators & growing brands worldwide
 
   <ul>
     <li><strong>Websites We Build</strong></li>
-    <li>Landing Pages & Pre-Launch Pages</li>
-    <li>Business & Portfolio Websites</li>
-    <li>E-commerce Stores</li>
-    <li>Custom Web Applications</li>
+    <li><i class="fa-solid fa-rocket"></i> Landing & Pre-Launch Pages</li>
+<li><i class="fa-solid fa-briefcase"></i> Business & Portfolio Websites</li>
+<li><i class="fa-solid fa-cart-shopping"></i> E-commerce Stores</li>
+<li><i class="fa-solid fa-code"></i> Custom Web Applications</li>
 
     <li><strong>Included Services</strong></li>
-    <li>Custom UI/UX Design</li>
-    <li>Supabase CMS & Auth</li>
-    <li>Admin Dashboards</li>
-    <li>Smart Cart System</li>
-    <li>PayPal Payment Integration</li>
-    <li>SEO & Performance Optimization</li>
+   <li><i class="fa-solid fa-pen-nib"></i> Custom UI/UX Design</li>
+<li><i class="fa-solid fa-database"></i> Supabase CMS & Auth</li>
+<li><i class="fa-solid fa-chart-line"></i> Admin Dashboards</li>
+<li><i class="fa-solid fa-bag-shopping"></i> Smart Cart System</li>
+<li><i class="fa-brands fa-paypal"></i> PayPal Payment Integration</li>
+<li><i class="fa-solid fa-magnifying-glass"></i> SEO & Performance Optimization</li>
   </ul>
 
-  <button onclick="openGetStartedModal()">
-    Create My Plan
-  </button>
+  <button onclick="openForm()">
+  Create My Plan
+</button>
 <p>No templates. No shortcuts. Built exactly for your business.</p>
 </div>
             
