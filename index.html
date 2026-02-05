@@ -441,14 +441,14 @@
         }
 
         .pricing-card h3 {
-            font-size: 36px;
+            font-size: 24px;
             font-weight:700;
             margin-bottom: 20px;
-             font-family:'Inter', sans-serif;
+             
         }
 
         .pricing-card .price {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 30px;
         }
@@ -467,10 +467,12 @@
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.1);
              font-family:'Inter', sans-serif;
+            font-size:17px;
         }
 
         .pricing-card.featured li {
             border-bottom-color: rgba(255,255,255,0.1);
+font-size:17px;
         }
 
         /* --- Indoor Collection (Bento Grid) --- */
@@ -926,16 +928,16 @@ Trusted by creators & growing brands worldwide
 
 
   <ul>
-    <li style="font-size:18px; font-weight:600; ><strong>Websites We Build</strong></li>
-    <li><i class="fa-solid fa-rocket"></i> Landing & Pre-Launch Pages</li>
-<li><i class="fa-solid fa-briefcase"></i> Business & Portfolio Websites</li>
+    <li><strong>Websites We Build</strong></li>
+    <li><i class="fa-solid fa-rocket"></i> Landing & saas Pages</li>
+<li><i class="fa-solid fa-briefcase"></i> Portfolio Websites</li>
 <li><i class="fa-solid fa-cart-shopping"></i> E-commerce Stores</li>
 <li><i class="fa-solid fa-code"></i> Custom Web Applications</li>
 </ul>
 
 <ul>
 
-    <li style="font-size:18px; font-weight:600;><strong>Included Services</strong></li>
+    <li><strong>Included Services</strong></li>
    <li><i class="fa-solid fa-pen-nib"></i> Custom UI/UX Design</li>
 <li><i class="fa-solid fa-database"></i> Supabase CMS & Auth</li>
 <li><i class="fa-solid fa-chart-line"></i> Admin Dashboards</li>
@@ -944,7 +946,7 @@ Trusted by creators & growing brands worldwide
 <li><i class="fa-solid fa-magnifying-glass"></i> SEO & Performance Optimization</li>
   </ul>
 
-  <button onclick="openForm()">
+  <button class="btn btn-light" onclick="openForm()">
   Create My Plan
 </button>
 <p>No templates. No shortcuts. Built exactly for your business.</p>
@@ -1195,13 +1197,27 @@ Interests:
   </div>
 
   <!-- FormSubmit settings -->
-  <input type="hidden" name="_subject" value="New ShadyLabs Custom Plan Inquiry">
+  <input type="hidden" name="_subject" value="New Client Onboard">
   <input type="hidden" name="_captcha" value="false">
 
   <!-- Navigation -->
   <div style="display:flex; gap:10px;">
-    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
-    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="
+        padding:14px;
+        border-radius:30px;
+        border:none;
+        background:#000;
+        color:#fff;
+        cursor:pointer;
+      ">Back</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)" style="
+        padding:14px;
+        border-radius:30px;
+        border:none;
+        background:#000;
+        color:#fff;
+        cursor:pointer;
+      ">Next</button>
   </div>
 
 </form>
