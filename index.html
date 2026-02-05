@@ -1070,11 +1070,11 @@ Trusted by creators & growing brands worldwide
 
     <!-- Feature list -->
     <ul class="features" id="featureList">
-      <li>Frontend + Backend Development</li>
-      <li>Supabase / Database Integration</li>
-      <li>Authentication Systems</li>
-      <li>Admin Dashboards</li>
-      <li>Payment Integrations</li>
+      <li>Landing Pages</li>
+      <li>Portfolio Sites</li>
+      <li>Ecommerce sites</li>
+      <li>Saas Websites</li>
+      <li>Business Websites</li>
     </ul>
 
     <!-- Meta info -->
@@ -1088,52 +1088,7 @@ Trusted by creators & growing brands worldwide
 
   </div>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-        <h2 class="section-title">Pricing Plans</h2>
-        <p style="max-width:300px; font-size:0.8rem; color:#666; margin-top:-50px; margin-bottom:10px;">We build coversion focused digital assets to scale</p>
-        </div>
-            
-                <div class="pricing-card featured">
-  <h3>Signature Web Experience</h3>
-  <p class="price">
-    Starting at <span>$199</span> <br>
-    <small>Up to $1500+</small>
-  </p>
-
-
-  <ul>
-    <li><strong>Websites We Build</strong></li>
- <li><i class="fa-solid fa-circle-info"></i> Landing Pages</li>
-  <li><i class="fa-solid fa-circle-info"></i> Pre-Launch Pages</li>
-  <li><i class="fa-solid fa-circle-info"></i> Business Websites</li>
-  <li><i class="fa-solid fa-circle-info"></i> Portfolio Websites</li>
-  <li><i class="fa-solid fa-circle-info"></i> E-commerce Stores</li>
-  <li><i class="fa-solid fa-circle-info"></i> Custom Web Applications</li>
-</ul>
-
-<ul>
-
-    <li><strong>Included Services</strong></li>
-   
-  <li><i class="fa-solid fa-circle-check"></i> Custom UI/UX Design</li>
-  <li><i class="fa-solid fa-circle-check"></i> Supabase powered CMS </li>
-  <li><i class="fa-solid fa-circle-check"></i> Admin Dashboards</li>
-  <li><i class="fa-solid fa-circle-check"></i> Smart Cart System</li>
-  <li><i class="fa-solid fa-circle-check"></i> PayPal Integration</li>
-  <li><i class="fa-solid fa-circle-check"></i> SEO Optimization</li>
-  </ul>
-
-  <button class="btn btn-light" onclick="openForm()">
-  Create My Plan
-</button>
-<p style="font-weight:400; margin-top:10px;">No templates. No shortcuts. Built exactly for your business.</p>
-</div>
-            
-            
-        </div>
-    </section>
+    
 
     <!-- Customer Feedback Section -->
       <h2 style="font-size:2.5rem; font-weight:800; margin-bottom:1rem; text-align: center;">What Our <br>Customers Say</h2>
@@ -1542,41 +1497,48 @@ loadData();
 showStep(currentStep);
 </script>
 
-const buttons = document.querySelectorAll('.mode');
-const list = document.getElementById('featureList');
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll('.mode');
+  const list = document.getElementById('featureList');
 
-const features = {
-  full: [
-    "Landing Pages",
-    "Portfolio Sites",
-    "Ecommerce sites",
-    "Saas Websites",
-    "Business Websites"
-  ],
-  hybrid: [
-    "Supabase powered CMS",
-    "Paypal Integration",
-    "Smart Cart Setup",
-    "Admin Dashboard",
-    "SEO Optimization"
-  ]
-};
+  const features = {
+    full: [
+      "Landing Pages",
+      "Portfolio Sites",
+      "Ecommerce sites",
+      "Saas Websites",
+      "Business Websites"
+    ],
+    hybrid: [
+      "Supabase powered CMS",
+      "Paypal Integration",
+      "Smart Cart Setup",
+      "Admin Dashboard",
+      "SEO Optimization"
+    ]
+  };
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    const mode = btn.dataset.mode;
-    list.innerHTML = "";
+      const mode = btn.dataset.mode;
 
-    features[mode].forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      list.appendChild(li);
+      list.style.opacity = 0;
+      setTimeout(() => {
+        list.innerHTML = "";
+        features[mode].forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          list.appendChild(li);
+        });
+        list.style.opacity = 1;
+      }, 150);
     });
   });
 });
-
+</script>
 </body>
 </html>
