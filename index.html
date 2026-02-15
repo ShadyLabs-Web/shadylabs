@@ -891,6 +891,77 @@ margin-bottom:50px;
   box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
 }
 
+/* === Product Popup Modal === */
+.product-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.product-popup {
+  background: #fff;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+  animation: popupFade 0.3s ease;
+}
+
+@keyframes popupFade {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 26px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.product-popup h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.product-popup img {
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.case-section {
+  margin-bottom: 15px;
+}
+
+.case-section strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.visit-btn {
+  margin-top: 20px;
+  padding: 14px;
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 
     </style>
 <script type="application/ld+json">
@@ -1538,5 +1609,99 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<!-- Product Popup Modal -->
+<div class="product-popup-overlay" id="productPopup">
+  <div class="product-popup">
+    <span class="popup-close" onclick="closeProductPopup()">×</span>
+    <h3 id="popupTitle"></h3>
+    <img id="popupImage" src="" alt="">
+    
+    <div class="case-section">
+      <strong>Project Overview</strong>
+      <p id="popupOverview"></p>
+    </div>
+
+    <div class="case-section">
+      <strong>Challenges</strong>
+      <p id="popupChallenges"></p>
+    </div>
+
+    <div class="case-section">
+      <strong>Solution</strong>
+      <p id="popupSolution"></p>
+    </div>
+
+    <div class="case-section">
+      <strong>Result</strong>
+      <p id="popupResult"></p>
+    </div>
+
+    <div class="case-section">
+      <strong>Cost</strong>
+      <p id="popupCost"></p>
+    </div>
+
+    <button class="visit-btn" id="popupVisit" target="_blank">
+      Visit Website
+    </button>
+  </div>
+</div>
+<script>
+const caseStudies = {
+  "Winged Nika": {
+    overview: "Custom CMS powered ecommerce website built for a premium jewelry brand.",
+    challenges: "Needed secure payment integration, easy product management, and premium branding.",
+    solution: "Built with CMS structure, PayPal integration, smart cart system and SEO foundation.",
+    result: "Increased brand authority and streamlined global order processing.",
+    cost: "$129 - Addon upgrade with Smart Cart & PayPal",
+    link: "https://wingednika.com"
+  },
+  "Opiumtrim": {
+    overview: "Pre-launch ecommerce website for a streetwear clothing brand.",
+    challenges: "Required hype-building structure before product release.",
+    solution: "Designed high-converting landing experience with email capture system.",
+    result: "Generated early traction and brand awareness before official launch.",
+    cost: "$399",
+    link: "#"
+  },
+  "NoirFrame": {
+    overview: "Minimal portfolio website inspired by Notion aesthetics.",
+    challenges: "Required ultra-clean UI with structured storytelling.",
+    solution: "Developed lightweight minimal design optimized for creators.",
+    result: "Improved personal branding and online presence.",
+    cost: "$199",
+    link: "#"
+  }
+};
+
+const productCards = document.querySelectorAll('.product-card');
+
+productCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const title = card.querySelector('h4').innerText;
+    const imgSrc = card.querySelector('img').src;
+    const data = caseStudies[title];
+
+    document.getElementById('popupTitle').innerText = title;
+    document.getElementById('popupImage').src = imgSrc;
+    document.getElementById('popupOverview').innerText = data.overview;
+    document.getElementById('popupChallenges').innerText = data.challenges;
+    document.getElementById('popupSolution').innerText = data.solution;
+    document.getElementById('popupResult').innerText = data.result;
+    document.getElementById('popupCost').innerText = data.cost;
+
+    const visitBtn = document.getElementById('popupVisit');
+    visitBtn.onclick = () => window.open(data.link, "_blank");
+
+    document.getElementById('productPopup').style.display = "flex";
+  });
+});
+
+function closeProductPopup() {
+  document.getElementById('productPopup').style.display = "none";
+}
+</script>
+
 </body>
 </html>
